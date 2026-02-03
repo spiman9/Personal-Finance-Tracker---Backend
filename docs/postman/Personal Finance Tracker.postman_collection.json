@@ -1,0 +1,187 @@
+{
+  "info": {
+    "_postman_id": "cf89cf9c-1da5-4113-bd99-d8e4ef6e4061",
+    "name": "Personal Finance Tracker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42551654"
+  },
+  "item": [
+    {
+      "name": "Get all transactions",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "user123",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "user1",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "post transaction",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"amount\" : 2000,\r\n    \"type\" : \"INCOME\",\r\n    \"category\" : \"food\",\r\n    \"description\" : \"dominos pizza\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update transaction",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n        \"amount\": 2000.0,\r\n        \"category\": \"food\",\r\n        \"date\": \"2026-02-03\",\r\n        \"description\": \"dominos pizza\",\r\n        \"type\": \"EXPENSE\"\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete transaction",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"amount\" : 2000,\r\n    \"type\" : \"INCOME\",\r\n    \"category\" : \"food\",\r\n    \"description\" : \"dominos pizza\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/transactions/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "transactions",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "report - based on range",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"amount\" : 2000,\r\n    \"type\" : \"INCOME\",\r\n    \"category\" : \"food\",\r\n    \"description\" : \"dominos pizza\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/reports/range?startDate=2026-01-03&endDate=2026-02-03",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "reports",
+            "range"
+          ],
+          "query": [
+            {
+              "key": "startDate",
+              "value": "2026-01-03"
+            },
+            {
+              "key": "endDate",
+              "value": "2026-02-03"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "report - monthly",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
